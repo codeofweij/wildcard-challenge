@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.css">
+
+</head>
+
+<body ng-app="wildcard" ng-controller="MainCtrl as vm">
+
+  <div class="panel">
+    <h2>Problem 1</h2>
+    <div class="row">
+      <div class="medium-9 columns">
+
+        <label>Input File</label>
+        <input type="text" ng-model="vm.sourceFile">
+        <button class="small button" ng-click="vm.solveProb1()">Get Combinations</button>
+        <div ng-if="vm.count" class="alert-box success round">combinations: {{ vm.count | number }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Problem 2</h2>
+
+    <div class="row">
+      <div class="medium-9 columns">
+        <label>Cards</label>
+        <input type="number" min="1" max="25" ng-change="vm.solveProb2()" ng-model="vm.prob2.numOfCandidateCards">
+        <input type="checkbox" ng-model="vm.prob2.debug">
+        <label>debug</label>
+
+        <div ng-if="vm.prob2.totalCost" class="alert-box success round">
+          cost: {{ vm.prob2.totalCost }}</div>
+        <small ng-if="vm.prob2.debug">{{ vm.prob2.debugOut }}</small>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="app.js"></script>
+</html>
